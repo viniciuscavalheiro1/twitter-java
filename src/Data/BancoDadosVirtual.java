@@ -3,11 +3,12 @@ package Data;
 import Entities.Twitter;
 import Entities.Usuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BancoDadosVirtual {
-    private List<Usuario> usuarios;
-    private List<Twitter> twitters;
+    public List<Usuario> usuarios = new ArrayList<>();
+    public List<Twitter> twitters = new ArrayList<>();
 
     public List<Usuario> getUsuarios() {
         return usuarios;

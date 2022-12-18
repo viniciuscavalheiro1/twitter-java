@@ -1,6 +1,8 @@
 package Entities;
 
 import java.rmi.server.UID;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Usuario {
@@ -9,11 +11,21 @@ public class Usuario {
     private String email;
     private String senha;
 
-    public Usuario(UID id, String nome, String email, String senha) {
-        Id = id;
+    private List<Twitter> twitterList = new ArrayList<>();
+
+    public Usuario(String nome, String email, String senha) {
+        Id = new UID();
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+    }
+
+    public List<Twitter> getTwitterList() {
+        return twitterList;
+    }
+
+    public void setTwitterList(Twitter twitterList) {
+        this.twitterList.add(twitterList);
     }
 
     public UID getId() {

@@ -1,5 +1,8 @@
 package Service;
 
+import Data.BancoDadosVirtual;
+import Entities.Usuario;
+
 public class Service {
 
     public void menu() {
@@ -7,7 +10,7 @@ public class Service {
         System.out.println("+                 MENU                    +");
         System.out.println("+        1 - Publicar Twitter             +");
         System.out.println("+        2 - TimeLine                     +");
-        System.out.println("+        3 - Perfil                       +");
+        System.out.println("+        3 - Meus Twitter                 +");
         System.out.println("+        4 - Logout                       +");
         System.out.println("+-----------------------------------------+");
         System.out.print("Digite uma opção: ");
@@ -40,5 +43,18 @@ public class Service {
     {
         for(int i = 0; i < 25; i++)
             System.out.println("");
+    }
+
+    public int buscarUser(String email, String senha, BancoDadosVirtual bancoDadosVirtual) {
+        int cont = 0;
+        int id = -1;
+        for (Usuario usuario: bancoDadosVirtual.usuarios) {
+            if(usuario.getEmail().equals(email) && usuario.getSenha().equals(senha)){
+                id = cont;
+                return id;
+            }
+            cont++;
+        }
+        return id;
     }
 }
